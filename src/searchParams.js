@@ -12,7 +12,6 @@ const SearchParams = () => {
   const [breeds] = useBreedList(animal);
   const [theme, setTheme] = useContext(ThemeContext);
 
-
   useEffect(() => {
     requestPets();
   }, []); //eslint-disable-line
@@ -27,8 +26,9 @@ const SearchParams = () => {
   }
 
   return (
-    <div className="search-params">
+    <div className="my-0 mx-auto w-11/12">
       <form
+        className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
         onSubmit={(e) => {
           e.preventDefault();
           requestPets();
@@ -89,18 +89,16 @@ const SearchParams = () => {
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
             onBlur={(e) => setTheme(e.target.value)}
-            >
-              <option value="peru">Peru</option>
-              <option value="darkblue">Dark blue</option>
-              <option value="chartreuse">Chartreuse</option>
-              <option value="mediumorchid">Medium Orchid</option>
-
-            </select>
-
+          >
+            <option value="peru">Peru</option>
+            <option value="darkblue">Dark blue</option>
+            <option value="chartreuse">Chartreuse</option>
+            <option value="mediumorchid">Medium Orchid</option>
+          </select>
         </label>
-        <button style={{ backgroundColor: theme}}>Submit</button>
+        <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
-      <Results pets={pets}/>
+      <Results pets={pets} />
     </div>
   );
 };
